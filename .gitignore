@@ -1,0 +1,14 @@
+.vscode/
+.DS_Store
+
+/dist
+*/dist
+
+/node_modules
+*/node_modules
+
+HELP.md
+terget/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
