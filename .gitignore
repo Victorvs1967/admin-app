@@ -8,7 +8,15 @@
 */node_modules
 
 HELP.md
-terget/
+target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/test/**
+
+
+/angular-admim-dashboard
+/webflux-admin-app
+/angular-admim-dashboard/**
+/webflux-admin-app/**
+
+.gitignore
