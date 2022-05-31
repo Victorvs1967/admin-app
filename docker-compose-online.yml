@@ -10,7 +10,7 @@ services:
       - MONGO_INITDB_ROOT_DATABASE=portfolio_mongo_db
     volumes:
       - mongodb_data:/data/db
-    # neans you want to set data on container persist on your local folder named mongo-volume ./data/db is a folder that already created inside the mongo container.
+    # means you want to set data on container persist on your local folder named mongo-volume ./data/db is a folder that already created inside the mongo container.
     ports:
       - 27017:27017
     networks:
@@ -36,6 +36,7 @@ services:
 
 networks:
   portfolio_net:
+    driver: bridge
 
 volumes:
   mongodb_data:
