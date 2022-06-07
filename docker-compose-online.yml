@@ -4,7 +4,7 @@ services:
   # Mongo DB
   database_mongo:
     container_name: mongo_container
-    image: mongo:latest
+    image: "yowoo/my-mongo"
     hostname: portfolio_mongo_host
     environment:
       - MONGO_INITDB_ROOT_DATABASE=portfolio_mongo_db
@@ -14,29 +14,33 @@ services:
     ports:
       - 27017:27017
     networks:
-      - portfolio_net
+      - backend
   # Backend
   backend_spring:
     container_name: backend_container
     image: victorvsm/portfolio_backend:v01
     ports:
-      - 8080:8080
+      - 8888:8080
     depends_on:
       - database_mongo
     networks:
-      - portfolio_net
+      - backend
   # Frontend
   frontend_angular:
     container_name: frontend_container
     image: victorvsm/portfolio_frontend:v01
     ports:
-      - 4200:4200
+      - 4200:80
     networks:
-      - portfolio_net
+      - frontend
 
 networks:
-  portfolio_net:
-    driver: bridge
+  backend:
+    external: false
+    name: backend
+  frontend:
+    external: false
+    name: frontend
 
 volumes:
   mongodb_data:

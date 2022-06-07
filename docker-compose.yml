@@ -4,7 +4,7 @@ services:
   # Mongo DB
   database_mongo:
     container_name: mongo_container
-    image: mongo:latest
+    image: "yowoo/my-mongo"
     hostname: portfolio_mongo_host
     environment:
       - MONGO_INITDB_ROOT_DATABASE=portfolio_mongo_db
