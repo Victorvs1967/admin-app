@@ -7,7 +7,7 @@ services:
     image: "yowoo/my-mongo"
     hostname: portfolio_mongo_host
     environment:
-      - MONGO_INITDB_ROOT_DATABASE=portfolio_mongo_db
+      MONGO_INITDB_ROOT_DATABASE: portfolio_mongo_db
     volumes:
       - mongodb_data:/data/db
     # means you want to set data on container persist on your local folder named mongo-volume ./data/db is a folder that already created inside the mongo container.
@@ -19,6 +19,9 @@ services:
   backend_spring:
     container_name: backend_container
     image: victorvsm/portfolio_backend:v01
+    environment:
+      HOST_URL: portfolio-dev.club
+      MONGO_URI: database_mongo
     ports:
       - 8888:8080
     depends_on:
@@ -29,6 +32,8 @@ services:
   frontend_angular:
     container_name: frontend_container
     image: victorvsm/portfolio_frontend:v01
+    environment:
+      HOST_URL: portfolio-dev.club
     ports:
       - 4200:80
     networks:
