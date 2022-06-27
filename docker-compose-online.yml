@@ -4,7 +4,8 @@ services:
   # Mongo DB
   database_mongo:
     container_name: mongo_container
-    image: "yowoo/my-mongo"
+    # image: "yowoo/my-mongo"
+    image: "mongo"
     hostname: portfolio_mongo_host
     environment:
       MONGO_INITDB_ROOT_DATABASE: portfolio_mongo_db
@@ -20,8 +21,12 @@ services:
     container_name: backend_container
     image: victorvsm/portfolio_backend:v01
     environment:
-      HOST_URL: portfolio-dev.club
+      # HOST_URL: portfolio-dev.club
+      # HOST_PORT: 4200
       MONGO_URI: database_mongo
+      ADMIN_USERNAME: admin
+      ADMIN_PASSWORD: admin
+      ADMIN_EMAIL: admin@mail.me
     ports:
       - 8888:8080
     depends_on:
@@ -32,8 +37,9 @@ services:
   frontend_angular:
     container_name: frontend_container
     image: victorvsm/portfolio_frontend:v01
-    environment:
-      HOST_URL: portfolio-dev.club
+    # environment:
+    #   HOST_URL: portfolio-dev.club
+    #   HOST_PORT: 4200
     ports:
       - 4200:80
     networks:
