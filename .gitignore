@@ -13,4 +13,6 @@ target/
 !**/src/main/**
 !**/src/test/**
 
+mongodb_data/
+
 .gitignore

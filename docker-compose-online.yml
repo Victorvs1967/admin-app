@@ -10,7 +10,7 @@ services:
     environment:
       MONGO_INITDB_ROOT_DATABASE: portfolio_mongo_db
     volumes:
-      - mongodb_data:/data/db
+      - ./mongodb_data:/data/db
     # means you want to set data on container persist on your local folder named mongo-volume ./data/db is a folder that already created inside the mongo container.
     ports:
       - 27017:27017
@@ -52,6 +52,3 @@ networks:
   frontend:
     external: false
     name: frontend
-
-volumes:
-  mongodb_data:
