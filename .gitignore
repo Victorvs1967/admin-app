@@ -14,5 +14,8 @@ target/
 !**/src/test/**
 
 mongodb_data/
+backup-db/
+
+fogo-cms/
 
 .gitignore
