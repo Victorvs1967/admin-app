@@ -7,8 +7,11 @@ services:
     # image: "yowoo/my-mongo"
     image: "mongo"
     hostname: portfolio_mongo_host
+    # command: [ --auth ]    
     environment:
       MONGO_INITDB_ROOT_DATABASE: portfolio_mongo_db
+      # MONGO_INITDB_ROOT_USERNAME: victor
+      # MONGO_INITDB_ROOT_PASSWORD: victor77
     volumes:
       - ./mongodb_data:/data/db
     # means you want to set data on container persist on your local folder named mongo-volume ./data/db is a folder that already created inside the mongo container.

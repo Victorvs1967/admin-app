@@ -41,7 +41,7 @@ services:
   frontend_angular:
     container_name: frontend_container
     build:
-      context: ./angular-admin-dashboard
+      context: ./angular-admin-app
       dockerfile: Dockerfile
     # environment:
       # HOST_URL: http://portfolio-dev.club
